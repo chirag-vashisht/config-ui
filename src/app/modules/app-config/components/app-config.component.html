@@ -1,0 +1,39 @@
+<button type="button" class="btn btn-default btn-sm" (click)="addConfig()">
+    <span class="glyphicon glyphicon-plus"></span> Add Config
+  </button>
+<div class="alert alert-info" *ngIf="configurations.length === 0">
+  <strong>No configurations found!</strong> Please use 'Add Config' to add configurations.
+</div>
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<div class="grid grid-pad" *ngIf="configurations.length > 0">
+  <div class="row header">
+    <div class="col-sm-4">
+      <h3>Namespace</h3>
+    </div>
+    <div class="col-sm-4">
+      <h3>Description</h3>
+    </div>
+    <div class="col-sm-4">
+      <h3>Actions</h3>
+    </div>
+  </div>
+  <div *ngFor="let config of configurations; let i = index" class="row">
+    <div class="col-sm-4">
+      <h4>{{config.namespace}}</h4>
+    </div>
+    <div class="col-sm-4">
+      <h4>{{config.description}}</h4>
+    </div>
+    <div class="col-sm-4">
+      <button tooltip="View Config" type="button" class="btn btn-default btn-sm" (click)="viewConfig(config)">
+            <span class="glyphicon glyphicon-zoom-in"></span>
+          </button>
+      <button tooltip="Edit Config" type="button" class="btn btn-default btn-sm" (click)="editConfig(config)">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </button>
+      <button tooltip="Delete Config" type="button" class="btn btn-default btn-sm" (click)="confirmDelete(config, i)">
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+    </div>
+  </div>
+</div>
