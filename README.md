@@ -31,7 +31,7 @@ npm run server:dev:hmr
 go to [http://0.0.0.0:3000](http://0.0.0.0:3000) or [http://localhost:3000](http://localhost:3000) in your browser
 
 # Table of Contents
-* [File Structure](#file-structure)
+* [Directory Structure](#directory-structure)
 * [Getting Started](#getting-started)
     * [Dependencies](#dependencies)
     * [Installing](#installing)
@@ -55,8 +55,7 @@ Once you have those, you should install these globals with `npm install --global
 * `typescript` (`npm install --global typescript`)
 
 ## Installing
-* `fork` this repo
-* `clone` your fork
+* `clone` repo
 * `npm install webpack-dev-server rimraf webpack -g` to install required global dependencies
 * `npm install` to install all dependencies or `yarn`
 * `npm run server` to start the dev server in another tab
@@ -131,3 +130,49 @@ npm run build:docker
 
 # Configuration
 Configuration files live in `config/` we are currently using webpack, karma, and protractor for different stages of your application
+
+# Directory Structure
+config-ui/
+ ├──config/                        * our configuration
+ |   ├──helpers.js                 * helper functions for our configuration files
+ |   ├──spec-bundle.js             * ignore this magic that sets up our Angular testing environment
+ |   ├──karma.conf.js              * karma config for our unit tests
+ |   ├──protractor.conf.js         * protractor config for our end-to-end tests
+ │   ├──webpack.dev.js             * our development webpack config
+ │   ├──webpack.prod.js            * our production webpack config
+ │   └──webpack.test.js            * our testing webpack config
+ │
+ ├──src/                           * our source files that will be compiled to javascript
+ |   ├──main.browser.ts            * our entry file for our browser environment
+ │   │
+ |   ├──index.html                 * Index.html: where we generate our index page
+ │   │
+ |   ├──polyfills.ts               * our polyfills file
+ │   │
+ │   ├──app/                       * WebApp: folder
+ │   │   ├──app.component.spec.ts  * a simple test of components in app.component.ts
+ │   │   ├──app.e2e.ts             * a simple end-to-end test for /
+ │   │   ├──app.component.ts       * a simple version of our App component components
+ |   |   └──modules/
+ |   |            └──app-config/                          * reusable bootstrap based configmodule
+ |   |                          ├──components/            * contains component and its files
+ |   |                          ├──interfaces/            * contains config item interface
+ |   |                          ├──mocks/                 * contains mocks for services
+ |   |                          ├──services/              * contains services to access api
+ |   |                          ├──index.ts               * expose module, interfaces and models to external modules/components
+ |   |                          └──app-config.module.ts   * config manager module
+ |   |            
+ │   │            
+ │   └──assets/                    * static assets are served here
+ │       ├──icon/                  * our list of icons from www.favicon-generator.org
+ │       ├──service-worker.js      * ignore this. Web App service worker that's not complete yet
+ │       ├──robots.txt             * for search engines to crawl your website
+ │       └──humans.txt             * for humans to know who the developers are
+ │
+ │
+ ├──tslint.json                    * typescript lint config
+ ├──typedoc.json                   * typescript documentation generator
+ ├──tsconfig.json                  * typescript config used outside webpack
+ ├──tsconfig.webpack.json          * config that webpack uses for typescript
+ ├──package.json                   * what npm uses to manage its dependencies
+ └──webpack.config.js              * webpack main configuration file
