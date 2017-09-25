@@ -132,6 +132,7 @@ npm run build:docker
 Configuration files live in `config/` we are currently using webpack, karma, and protractor for different stages of your application
 
 # Directory Structure
+```
 config-ui/
  ├──config/                        * our configuration
  |   ├──helpers.js                 * helper functions for our configuration files
@@ -176,3 +177,5 @@ config-ui/
  ├──tsconfig.webpack.json          * config that webpack uses for typescript
  ├──package.json                   * what npm uses to manage its dependencies
  └──webpack.config.js              * webpack main configuration file
+ ```
+ 
