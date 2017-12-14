@@ -29,7 +29,7 @@ import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
-import { AppConfigModule } from './modules/app-config';
+import { TradeBlotterModule } from './modules/ui-blotter';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -65,7 +65,7 @@ type StoreType = {
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    AppConfigModule,
+    TradeBlotterModule,
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules

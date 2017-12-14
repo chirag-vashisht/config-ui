@@ -1,0 +1,43 @@
+<div class="alert alert-info" *ngIf="trades.length === 0">
+  <strong>No trades found!</strong>
+</div>
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<button tooltip="Calculate" type="button" class="btn btn-default btn-sm" (click)="calculate()">
+  Calculate
+</button>
+<div class="grid grid-pad" *ngIf="trades.length > 0">
+  <div class="row header">
+    <div class="col-sm-2">
+      <h3>Symbol</h3>
+    </div>
+    <div class="col-sm-2">
+      <h3>Action</h3>
+    </div>
+    <div class="col-sm-2">
+      <h3>TxnId</h3>
+    </div>
+    <div class="col-sm-2">
+      <h3>Quantity</h3>
+    </div>
+    <div class="col-sm-2">
+      <h3>Price</h3>
+    </div>
+  </div>
+  <div *ngFor="let trade of trades; let i = index" class="row">
+    <div class="col-sm-2">
+      <h4>{{trade.Symbol}}</h4>
+    </div>
+    <div class="col-sm-2">
+      <h4>{{trade.Action}}</h4>
+    </div>
+    <div class="col-sm-2">
+      <h4>{{trade.TxnId}}</h4>
+    </div>
+    <div class="col-sm-2">
+      <h4>{{trade.Quantity}}</h4>
+    </div>
+    <div class="col-sm-2">
+      <h4>{{trade.Price}}</h4>
+    </div>
+  </div>
+</div>

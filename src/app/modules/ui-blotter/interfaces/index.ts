@@ -1,0 +1,1 @@
+export { ITrade } from './itrade';
